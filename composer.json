@@ -1,0 +1,21 @@
+
+{
+    "name": "lakshanjs/profanity-filter",
+    "description": "A flexible profanity filter for PHP.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lakshan Jayasinghe",
+            "email": "your-email@example.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "LakshanJS\\ProfanityFilter\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0"
+    }
+}
