@@ -66,4 +66,20 @@ class ProfanityFilter
         $this->exclusions[] = $word;
     }
 
+    // Check if the text contains any profanities
+    public function hasProfanity($text)
+    {
+        foreach ($this->badWords as $word) {
+            // Skip words in the exclusion list
+            if (!in_array(strtolower($word), array_map('strtolower', $this->exclusions))) {
+                // Use regex for whole word or partial match based on setting
+                $pattern = $this->partialMatch ? '/' . preg_quote($word, '/') . '/i' : '/\b' . preg_quote($word, '/') . '\b/i';
+                if (preg_match($pattern, $text)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 }
